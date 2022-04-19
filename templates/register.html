@@ -1,0 +1,14 @@
+{%extends 'base.html' %} {% block content %}
+<h1 class="display-1">Register</h1>
+<p class="lead">Register to join the community!</p>
+<form method="POST">
+  {{form.hidden_tag()}}{%for field in form if field.widget.input_type !=
+  'hidden'%}
+  <p>
+    {{field.label}}{{field(class_='form-control')}} {% for errors in
+    field.errors %}<span class="text-danger">{{errors}}</span>{% endfor %}
+  </p>
+  {% endfor %}
+  <button class="btn btn-sucess btn-sm">Sign Up</button>
+</form>
+{%endblock%}
