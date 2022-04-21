@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block content %}
+<h1>User Feedback</h1>
+<p>
+  This was designed for a user to generate feedback for us to be able to improve
+  and see the current feedback
+</p>
+<form method="POST">
+  {{form.hidden_tag()}}{%for field in form if field.widget.input_type !=
+  'hidden'%}
+  <p>
+    {{field.label}}{{field(class_='form-control')}} {% for errors in
+    field.errors %}
+    <span class="text-danger">{{errors}}</span>{% endfor %}
+  </p>
+  {% endfor %}
+  <button class="btn btn-success btn-sm">Submit</button>
+</form>
+{% endblock %}
