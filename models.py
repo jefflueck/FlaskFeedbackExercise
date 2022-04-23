@@ -1,7 +1,7 @@
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
+# from sqlalchemy import create_engine
+# from sqlalchemy_utils import database_exists, create_database
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
