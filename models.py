@@ -8,7 +8,7 @@ bcrypt = Bcrypt()
 db = SQLAlchemy()
 
 
-engine = create_engine('postgresql:///flask_feedback')
+engine = create_engine('DATABASE_URL','postgresql:///flask_feedback')
 if not database_exists(engine.url):
     create_database(engine.url)
 
