@@ -4,6 +4,7 @@ from flask_debugtoolbar import DebugToolbarExtension
 from models import db, connect_db, User, Feedback
 from forms import RegisterForm, LoginForm, FeedbackForm
 from sqlalchemy.exc import IntegrityError
+import os
 
 app = Flask(__name__)
 
@@ -15,8 +16,8 @@ app.config['SQLALCHEMY_ECHO'] = True
 # the toolbar is only enabled in debug mode:
 app.debug = True
 app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
-# set a 'SECRET_KEY' to enable the Flask session cookies
-app.config['SECRET_KEY'] = 'The secret key'
+# set a 'SECRET_KEY' for heroku to work
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'thisisthedefaultsecret')
 toolbar = DebugToolbarExtension(app)
 
 connect_db(app)
