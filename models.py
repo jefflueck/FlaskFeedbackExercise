@@ -1,17 +1,9 @@
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
-from sqlalchemy_utils import database_exists, create_database
 from flask_bcrypt import Bcrypt
-import os
 
 bcrypt = Bcrypt()
 db = SQLAlchemy()
-
-
-engine = create_engine(os.getenv('DATABASE_URL'))
-if not database_exists(engine.url):
-    create_database(engine.url)
 
 def connect_db(app):
   db.app = app
