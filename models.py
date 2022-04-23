@@ -1,16 +1,16 @@
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
-# from sqlalchemy import create_engine
-# from sqlalchemy_utils import database_exists, create_database
+from sqlalchemy import create_engine
+from sqlalchemy_utils import database_exists, create_database
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()
 db = SQLAlchemy()
 
 
-# engine = create_engine('postgresql:///flask_feedback')
-# if not database_exists(engine.url):
-#     create_database(engine.url)
+engine = create_engine('postgresql:///flask_feedback')
+if not database_exists(engine.url):
+    create_database(engine.url)
 
 def connect_db(app):
   db.app = app
