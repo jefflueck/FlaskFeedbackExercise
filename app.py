@@ -9,6 +9,11 @@ import os
 app = Flask(__name__)
 db = SQLAlchemy()
 
+def create_app():
+    app = Flask(__name__)
+    db.init_app(app)
+    return app
+
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', "postgresql:///flask_feedback")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ECHO'] = True
